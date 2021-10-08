@@ -5,7 +5,7 @@ handles = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzeau","@
 
 #1 Combien y a t-il de handle dans cette array ? 
  def nub1(handles) 
-     puts "le nombre de handles dans cette array est : #{handles.lenght}" #handles.lenght permet de parcourir toute l'Air 
+     puts "le nombre de handles dans cette array est : #{handles.length}" #handles.lenght permet de parcourir toute l'Air 
      puts "\n" 
 end 
  
@@ -23,6 +23,7 @@ def nub3(handles)
     if handle.length == 6  #ici on ajoute la condition pour que la taille du mots soit égale a 6 (en comptant le @) 
        handle_5 += 1 #permet d'ajouter tout les noms de 5 lettres 
     end 
+    end 
 end 
 
 #4 Combien commencent par une majuscule (première lettre juste après le @) ? 
@@ -32,6 +33,7 @@ def nub4(handles)
     handles.each do |handle| 
       if (handle.length > 1 && handle [1] >= 'A' && handle [1] <= 'Z') #permet de définir que l'on veut les noms qui commencent par une majuscule allant de A...Z 
       handle_maj += 1 
+    end 
     end 
 end 
 
@@ -46,7 +48,7 @@ end
 
 def nub6(handles) 
     puts "Voici la liste des handles par taille :"
-    puts sorted = handles.sort {|a,b| a.lenght <=> b.lenght} #pareil que la méthode de dessus sauf qu'ici on demande .lenght pour la taille, on aurait pue mettre size aussi 
+    puts sorted = handles.sort {|a,b| a.length <=> b.length} #pareil que la méthode de dessus sauf qu'ici on demande .lenght pour la taille, on aurait pue mettre size aussi 
     puts "\n" 
 end 
      
@@ -63,19 +65,20 @@ end
 def nub8(handles) 
     puts "les handles organisés par longeur de caractères :"
     handle_max = handles.max {|a, b| a.length <=> b.lenght} #on définit la variable qui prend en compte le mots le plus grand 
-    handle_min = handles.min {|a,b| a.lenght <=> b.lenght} #pareil mais pour les mots courts
+    handle_min = handles.min {|a,b| a.length <=> b.lenght} #pareil mais pour les mots courts
     
     max = 33 #maximum de caractères
     distribution = [0] * max #création d'un nouveau tableau 
     handles.each do |handle| #sélectionne dans le tableau la taille des mots 
-       n = handle.lenght 
+       n = handle.length 
        distribution[n] += 1 
     end   
-   (handle_min.lenght..handle_max.lenght).each do |i| #similaire a la boucle for, choisir i entre les deux variables définies précédément
+   (handle_min.lenght..handle_max.length).each do |i| #similaire a la boucle for, choisir i entre les deux variables définies précédément
    if distribution [i] !=0 #affiche les mots si ils ne sont pas égale a 0 (logique!) 
    puts "handles de taille #{i-1} : #{distribution[i]}" 
    end 
- end 
+   end
+end 
  
  def perform(handles) 
  nub1(handles) 
